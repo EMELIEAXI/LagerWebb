@@ -2,6 +2,8 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Identity.Web.Resource;
 
+//TEST TEST
+
 namespace LagerWebb.Controllers
 {
     [Authorize]
