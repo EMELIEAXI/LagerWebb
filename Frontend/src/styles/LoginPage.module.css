@@ -7,7 +7,7 @@
 
 fieldset {
   margin: 2rem 1rem;
-  padding: 4rem 1rem;
+  padding: 7rem 1rem 3rem;
   border-radius: 2rem;
   background-color: rgb(77, 132, 210);
 }
@@ -26,6 +26,11 @@ fieldset {
 .form-colum label {
   margin-left: 0.5rem;
   margin-bottom: 0.5rem;
+}
+
+form a {
+  display: block;
+  margin-bottom: 4rem;
 }
 
 .form-button {
