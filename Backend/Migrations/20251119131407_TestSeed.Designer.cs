@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LagerWebb.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20251119104306_SeedData")]
-    partial class SeedData
+    [Migration("20251119131407_TestSeed")]
+    partial class TestSeed
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -117,12 +117,17 @@ namespace LagerWebb.Migrations
                         new
                         {
                             CategoryId = 1,
-                            CategoryName = "Wire"
+                            CategoryName = "Kategori1"
                         },
                         new
                         {
                             CategoryId = 2,
-                            CategoryName = "Accessories"
+                            CategoryName = "Kategori2"
+                        },
+                        new
+                        {
+                            CategoryId = 3,
+                            CategoryName = "Kategori3"
                         });
                 });
 
@@ -302,39 +307,13 @@ namespace LagerWebb.Migrations
                     b.HasData(
                         new
                         {
-                            ProductId = 1,
-                            ArticleNumber = "19446",
+                            ProductId = 99,
+                            ArticleNumber = "TEST",
                             CategoryId = 1,
-                            CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Description = "Stållina för diverse användning",
-                            Location = "A1",
-                            MinimumStock = 10,
-                            ProductName = "Stållina",
-                            Quantity = 100
-                        },
-                        new
-                        {
-                            ProductId = 2,
-                            ArticleNumber = "45237",
-                            CategoryId = 2,
-                            CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Description = "Ledare för lina",
-                            Location = "B2",
-                            MinimumStock = 5,
-                            ProductName = "Linledare",
-                            Quantity = 50
-                        },
-                        new
-                        {
-                            ProductId = 3,
-                            ArticleNumber = "124639",
-                            CategoryId = 2,
-                            CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Description = "Förpackning med knappar",
-                            Location = "B3",
-                            MinimumStock = 20,
-                            ProductName = "Knappar",
-                            Quantity = 200
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MinimumStock = 0,
+                            ProductName = "TEST",
+                            Quantity = 0
                         });
                 });
 
@@ -431,19 +410,17 @@ namespace LagerWebb.Migrations
 
             modelBuilder.Entity("Product", b =>
                 {
-                    b.HasOne("Category", "Category")
+                    b.HasOne("Category", null)
                         .WithMany("Products")
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Category");
                 });
 
             modelBuilder.Entity("Transaction", b =>
                 {
                     b.HasOne("Product", "Product")
-                        .WithMany("Transactions")
+                        .WithMany()
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -462,11 +439,6 @@ namespace LagerWebb.Migrations
             modelBuilder.Entity("Category", b =>
                 {
                     b.Navigation("Products");
-                });
-
-            modelBuilder.Entity("Product", b =>
-                {
-                    b.Navigation("Transactions");
                 });
 #pragma warning restore 612, 618
         }
