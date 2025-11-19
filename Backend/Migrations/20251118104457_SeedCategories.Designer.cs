@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LagerWebb.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20251118104457_SeedCategories")]
+    partial class SeedCategories
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -300,44 +303,6 @@ namespace LagerWebb.Migrations
                     b.HasIndex("CategoryId");
 
                     b.ToTable("Products");
-
-                    b.HasData(
-                        new
-                        {
-                            ProductId = 1,
-                            ArticleNumber = "19446",
-                            CategoryId = 1,
-                            CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Description = "Stållina för diverse användning",
-                            Location = "A1",
-                            MinimumStock = 10,
-                            ProductName = "Stållina",
-                            Quantity = 100
-                        },
-                        new
-                        {
-                            ProductId = 2,
-                            ArticleNumber = "45237",
-                            CategoryId = 2,
-                            CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Description = "Ledare för lina",
-                            Location = "B2",
-                            MinimumStock = 5,
-                            ProductName = "Linledare",
-                            Quantity = 50
-                        },
-                        new
-                        {
-                            ProductId = 3,
-                            ArticleNumber = "124639",
-                            CategoryId = 2,
-                            CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Description = "Förpackning med knappar",
-                            Location = "B3",
-                            MinimumStock = 20,
-                            ProductName = "Knappar",
-                            Quantity = 200
-                        });
                 });
 
             modelBuilder.Entity("Transaction", b =>
