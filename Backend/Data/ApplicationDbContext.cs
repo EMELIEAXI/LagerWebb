@@ -18,8 +18,10 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
         base.OnModelCreating(builder);
 
         builder.Entity<Product>()
-            .Ignore(p => p.Category)
-            .Ignore(p => p.Transactions);
+    .HasOne(p => p.Category)
+    .WithMany(c => c.Products)
+    .HasForeignKey(p => p.CategoryId)
+    .OnDelete(DeleteBehavior.Restrict);
 
         builder.Entity<Category>().HasData(
             new Category { CategoryId = 1, CategoryName = "Kategori1" },
