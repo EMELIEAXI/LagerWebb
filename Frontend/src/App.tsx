@@ -10,6 +10,7 @@ import { useState } from 'react';
 import PartsPage from './pages/PartsPage';
 import HistoryPage from './pages/HistoryPage';
 import MyAccount from './pages/MyAccount';
+import AdminPage from './pages/AdminPage';
 
  function App() {
   const { isAuthenticated } = useAuth();
@@ -46,6 +47,15 @@ import MyAccount from './pages/MyAccount';
         element={
           <ProtectedRoute>
             <HistoryPage />
+          </ProtectedRoute>
+        }
+      />
+
+      <Route 
+        path="/admin" 
+        element={
+          <ProtectedRoute>
+            <AdminPage />
           </ProtectedRoute>
         }
       />

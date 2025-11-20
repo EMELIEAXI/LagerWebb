@@ -26,7 +26,14 @@ export default function LoginPage() {
           <a href="#">Har du glömt ditt användarnamn eller lösenord?</a>
 
           <div className={styles ["form-button"]}>
-            <button onClick={handleLogin}>Logga in</button>
+            <button onClick={handleLogin}>Logga in</button> 
+
+            {/* DEV-MODE ADMININLOGG true/false */}
+            <hr />
+            <p><strong>Dev-mode: login</strong></p>
+            <button type="button" onClick={() => login(false)}>Logga in som användare</button>
+            <button type="button" onClick={() => login(true)}>Logga in som admin</button>
+
           </div>
 
         </fieldset>
