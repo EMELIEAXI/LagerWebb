@@ -4,15 +4,35 @@
 
 .dashboard-section {
   padding: 2rem;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
   border-radius: 1rem;
-  background-color: var(--lavender-grey);
+  background-color: var(--orange);
   color: var(--text-color);
+}
+
+.dashboard-section h3 {
+  color: red;
+  text-align: center;
 }
 
 .dashboard-section a {
   display: flex;
+  justify-content: space-between;
   list-style: none;
-  margin-bottom: 0.5rem;
+  padding: 0.5rem;
   text-decoration: none;
+  background-color: rgb(212, 205, 205);
+}
+
+.dashboard-section a:nth-of-type(odd) {
+  background-color: aliceblue;
+}
+
+.dashboard-section a:nth-of-type(even) {
+  background-color: rgb(208, 212, 215);
+}
+
+.warnQty {
+  color: red;
+  font-weight: 700;
 }

@@ -11,6 +11,7 @@
 :root {
   --ocean-blue: #1E88E5;
   --golden-apricot: rgba(228, 154, 58, 1);
+  --orange: rgb(255, 165, 0);
   --lavender-grey: rgba(128, 138, 157, 1);
 
   --details-color: rgb(220, 146, 9);
@@ -21,10 +22,11 @@
   --default-padding: 1rem;
 }
 
+
 /* Global layout design */
 html, body {
   height: 100%;
-  background-color: var(--ocean-blue);
+  background-color: var(--lavender-grey);
   font-family: var(--font-family);
   color: var(--text-color);
 }
